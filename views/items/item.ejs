@@ -1,0 +1,59 @@
+<% layout("/layout/boilerplate") %>
+    <div class="container mb-5 hrem">
+        <div class="row g-3"> <!-- Added g-3 for gutter spacing -->
+            <div class="col-md-4 order-md-1 order-last sticky-top pt-4"> <!-- Left Column, Sticky -->
+                <div class="widthl">
+                    <img src="<%= itemId.image %>" class="prod_image img-fluid" alt="prod_image">
+                    <img src="<%= itemId.image2 %>" class="prod_image img-fluid" alt="prod_image">
+                    <img src="<%= itemId.image3 %>" class="prod_image img-fluid" alt="prod_image">
+                    <img src="<%= itemId.image4 %>" class="prod_image img-fluid" alt="prod_image">
+                    <div class="mt-3">
+                        <button type="button" class="btn btn-primary">Add To Cart</button>
+                        <button type="button" class="btn btn-secondary">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 order-md-2 col-1"> <!-- Main Content Column -->
+                <div class="card border-0"> <!--Removed unnecessary styling -->
+                    <h1>
+                        <span class="font00 fontsty col_c col_bla">
+                            <%= itemId.brandname %>
+                        </span>
+                        <span>
+                            <%= itemId.product %>
+                        </span>
+                    </h1>
+                    <div class="price_opt_flex">
+                        <div class="col_itemp font00 price_a"><b>&#8377;<%= itemId.price.toLocaleString("en-IN") %></b>
+                        </div>
+                        <div class="col_discp col_bla">&#8377;<s>
+                                <%= itemId.cutprice.toLocaleString("en-IN") %>
+                            </s></div>
+                        <div class="col_grn">
+                            <%= itemId.discount %>
+                        </div>
+                    </div>
+                    <p>Color: <%= itemId.color %>
+                    </p>
+                    <p>Features: <%= itemId.features %>
+                    </p>
+                    <p>Description: <%= itemId.description %>
+                    </p>
+                    <p>Delivery: <%= itemId.delivery %>
+                    </p>
+                    <p>EMI: <%= itemId.emi %>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3 order-md-3 order-first position-sticky top-0 start-0" style="top: 80px;">
+                <!-- Right Column, Sticky -->
+                <div class="btn-row">
+                    <a href="/show/<%= itemId._id %>/edit" class="btn btn-primary w-100 mb-2">Edit</a>
+                    <form method="post" action="/show/<%= itemId._id %>/delete?_method=DELETE">
+                        <button class="btn btn-primary w-100 mb-2">Delete</button>
+                    </form>
+                    <a href="/show" class="btn btn-primary w-100">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>

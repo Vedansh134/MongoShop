@@ -1,0 +1,123 @@
+<% layout("/layout/boilerplate") %>
+<div class="row mt-4">
+    <div class="col-8 offset-2">
+        <h3 class="mb-3">Edit <%= itemId.product %></h3>
+        <form method="post" action="/show/<%= itemId._id %>/edit?_method=Put" novalidate class="needs-validation">
+            <div class="mb-3">
+                <label for="image" class="form-lab el">Edit image1 link</label>
+                <input name="image" value="<%= itemId.image %>" type="text" class="form-control" required>
+                <div class="valid-feedback">                                <!--   use class prod_image -->
+                    Title looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please choose a Title name!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-lab el">Edit image2 link</label>
+                <input name="image2" value="<%= itemId.image2 %>" type="text" class="form-control" required>
+                <div class="valid-feedback">                                <!--   use class prod_image -->
+                    Title looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please choose a Title name!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-lab el">Edit image3 link</label>
+                <input name="image3" value="<%= itemId.image3 %>" type="text" class="form-control" required>
+                <div class="valid-feedback">                                <!--   use class prod_image -->
+                    Title looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please choose a Title name!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-lab el">Edit image4 link</label>
+                <input name="image4" value="<%= itemId.image4 %>" type="text" class="form-control" required>
+                <div class="valid-feedback">                                <!--   use class prod_image -->
+                    Title looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please choose a Title name!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="brandname" class="form-lab el">Brandname</label>
+                <input name="brandname" id="brandname" placeholder="Metro" value="<%= itemId.brandname %>" type="text" class="form-control" required>
+            </div>
+            <div class="row">
+                <div class="mb-3 col-md-5">
+                    <label for="product" class="form-lab el">Product name</label>
+                    <input name="product" value="<%= itemId.product %>" placeholder="Enter item" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Please enter a valid item name!
+                    </div>
+                </div>
+                <div class="mb-3 col-md-7">
+                    <label for="color" class="form-lab el">Color</label>
+                    <input name="color" value="<%= itemId.color %>" type="text" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Please enter a valid color name!
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="mb-3 col-md-4">
+                    <label for="price" class="form-lab el">Enter after discount price</label>
+                    <input name="price" value="<%= itemId.price %>" type="number" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Please enter a valid price!
+                    </div>
+                </div>
+                <div class="mb-3 col-md-4">
+                    <label for="cutprice" class="form-lab el">Enter before discount price</label>
+                    <input name="cutprice" value="<%= itemId.cutprice %>" type="number" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Please enter a valid price!
+                    </div>
+                </div>
+                <div class="mb-3 col-md-4">
+                    <label for="discount" class="form-lab el">Discount</label>
+                    <input name="discount" value="<%= itemId.discount %>" type="text" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Please enter a valid discount!
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="mb-3 col-md-4">
+                    <label for="delivery" class="form-lab el">Delivery options</label>
+                    <input name="delivery" value="<%= itemId.delivery %>" type="text" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Please enter a valid delivery option!
+                    </div>
+                </div>
+                <div class="mb-3 col-md-4">
+                    <label for="emi" class="form-lab el">EMI option</label>
+                    <input name="emi" value="<%= itemId.emi %>" type="text" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Please enter a valid EMI!
+                    </div>
+                </div>
+                <div class="mb-3 col-md-4">
+                    <label for="features" class="form-lab el">Features</label>
+                    <input name="features" value="<%= itemId.features %>" type="text" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Please enter a valid features name!
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-lab el">Description</label>
+                <textarea name="description" id="description" placeholder="Good product" class="form-control" required><%= itemId.description %></textarea>
+                <div class="invalid-feedback">
+                    Please enter a Description!
+                </div>
+            </div>
+            <button class="btn btn-info add-btn mt-4 mb-4">Edit Product</button>
+            <a href="http://localhost:3000/show" class="btn btn-secondary edit-btn">Back</a>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,115 @@
+<% layout("/layout/boilerplate") %>
+<h1>Create New Product</h1>
+<form method="post" action="/show/add" novalidate class="needs-validation mb-5">
+    <div class="mb-3">
+        <label for="image" class="form-label">Image link 1</label>
+        <input name="image" id="image" placeholder="enter image/url link" type="text" class="form-control">
+        <div class="invalid-feedback">
+            Please enter a valid location!
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="image2" class="form-label">Image link 2</label>
+        <input name="image2" id="image2" placeholder="enter image/url link" type="text" class="form-control">
+        <div class="invalid-feedback">
+            Please enter a valid location!
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="image3" class="form-label">Image link 3</label>
+        <input name="image3" id="image3" placeholder="enter image/url link" type="text" class="form-control">
+        <div class="invalid-feedback">
+            Please enter a valid location!
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="image4" class="form-label">Image link 4</label>
+        <input name="image4" id="image4" placeholder="enter image/url link" type="text" class="form-control">
+        <div class="invalid-feedback">
+            Please enter a valid location!
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="brandname" class="form-label">Brandname</label>
+        <input type="text" name="brandname" id="brandname" placeholder="Metro" class="form-control" required>
+        <div class="valid-feedback">
+            Brandnames looks good!
+        </div>
+        <div class="invalid-feedback">
+            Please choose a Brandname!
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb3 col-md-5">
+            <label for="color" class="form-label">Color</label>
+            <input type="text" name="color" id="color" placeholder="Red" class="form-control" required>
+            <div class="invalid-feedback">
+                Please enter a valid location!
+            </div>
+        </div>
+        <div class="mb3 col-md-7">
+            <label for="prod" class="form-label">Item</label>
+            <input type="text" name="item" id="prod" placeholder="Shirt" class="form-control" required>
+            <div class="invalid-feedback">
+                Please enter a valid location!
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb3 col-md-4">
+            <label for="price" class="form-label">Price1</label>
+            <input type="text" name="price" id="price" placeholder="Enter after discount price" class="form-control" required>
+            <div class="invalid-feedback">
+                Please enter a valid location!
+            </div>
+        </div>
+        <div class="mb3 col-md-4">
+            <label for="cutprice" class="form-label">Price2</label>
+            <input type="text" name="cutprice" id="cutprice" placeholder="Enter before discount price" class="form-control" required>
+            <div class="invalid-feedback">
+                Please enter a valid location!
+            </div>
+        </div>
+        <div class="mb3 col-md-4">
+            <label for="discount" class="form-label">Discount</label>
+            <input type="text" name="discount" id="discount" placeholder="Enter discount in %" class="form-control" required>
+            <div class="invalid-feedback">
+                Please enter a valid location!
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb3 col-md-6">
+            <label for="delivery" class="form-label">Delivery Option</label>
+            <input type="text" name="delivery" id="delivery" placeholder="yes/no" class="form-control" required>
+            <div class="invalid-feedback">
+                Please enter a valid location!
+            </div>
+        </div>
+        <div class="mb3 col-md-6">
+            <label for="emi" class="form-label">EMI Option</label>
+            <input type="text" name="emi" id="emi" placeholder="yes/no" class="form-control" required>
+            <div class="invalid-feedback">
+                Please enter a valid location!
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb3 col-md-3">
+            <label for="feature" class="form-label">Feature</label>
+            <input type="text" name="feature" id="feature" placeholder="good,cheap" class="form-control" required>
+            <div class="invalid-feedback">
+                Please enter a valid location!
+            </div>
+        </div>
+        <div class="mb3 col-md-9">
+            <label for="desc" class="form-label">Description</label>
+            <input type="text" name="desc" id="desc" placeholder="Such a nice product!" class="form-control" required>
+            <div class="invalid-feedback">
+                Please enter a valid location!
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-info add-btn mt-4 mb-4">Add Product</button>
+    <a href="http://localhost:3000/show" class="btn btn-secondary edit-btn">Back</a>
+</form>

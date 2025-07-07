@@ -1,0 +1,21 @@
+<% layout("/layout/boilerplate") %>
+<div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1 row-cols-xs-1 res01aa">
+    <% for(item of items){ %>
+        <a href="/show/<%= item._id %>" class="listing-link style_a">
+            <div class="card col sm00z">
+                <img src="<%= item.image %>" class="prod_image shw12z" alt="listing_image" style="height: 20rem;">
+                <div class="prod_info">
+                    <div class="naming_a font01"><%= item.brandname %></div>
+                    <div class="prod_head01aa font01"><%= item.product %></div>
+                    <div class="col_c">Color : <%= item.color %></div>
+                    <div class="price_opt_flex">
+                        <div class="price_a font00"><b>&#8377;<%= item.price.toLocaleString("en-IN") %></b></div>&nbsp;
+                        <div class="price_b font01"><s>&#8377;<%= item.cutprice.toLocaleString("en-IN") %></s></div>&nbsp;
+                        <div class="price_c col_grn"><%= item.discount %></div>
+                    </div>
+                    <div class="del_z01"><%= item.delivery %></div>
+                </div>
+            </div>
+        </a>
+    <% } %>
+</div>
