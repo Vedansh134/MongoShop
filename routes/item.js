@@ -24,7 +24,7 @@ router.get("/add",isLoggedIn,(req, res) => {
 router.post("/add", isLoggedIn, async (req, res) => {
     let { image ,image2,image3, image4, brandname, item, color, price, cutprice, discount, delivery, emi, feature, desc } = req.body;
 
-    //Error handling for missing image data  
+    //Error handling for missing image data 
     // if(!images || !Array.isArray(images) || images.length === 0){  
     //     req.flash("error", "Please provide at least one image URL.");  
     //     return res.redirect('/show/add');  

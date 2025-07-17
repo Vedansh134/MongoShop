@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = 8000;
 const mongoose = require("mongoose");
 const shopItems = require("./models/shop.js");
 const path = require("path");
@@ -51,10 +51,12 @@ main()
 
 async function main() {
     await mongoose.connect("mongodb://127.0.0.1:27017/shopmart");
+    //await mongoose.connect("mongodb://mongodb:27017/shopmart"); for docker container
 };
 
 app.get("/", (req, res) => {
-    res.send("app working");
+    // res.send("apps working");
+    res.redirect('/show');
 });
 
 
