@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 8000;
+const port = 8001;
 const mongoose = require("mongoose");
 const shopItems = require("./models/shop.js");
 const path = require("path");
@@ -40,19 +40,32 @@ const sessionOption = {
     },
 };
 
-// mongodb connection
-main()
-    .then(() => {
-        console.log("connect successfully with mongoDB");
-    }).catch((err) => {
-        console.log(err);
-        console.log("there is a error while connecting to database");
-    });
+//mongodb connection
+// main()
+//     .then(() => {
+//         console.log("connect successfully with mongoDB");
+//     }).catch((err) => {
+//         console.log(err);
+//         console.log("there is a error while connecting to database");
+//     });
 
-async function main() {
-    await mongoose.connect("mongodb://127.0.0.1:27017/shopmart");
-    //await mongoose.connect("mongodb://mongodb:27017/shopmart"); for docker container
-};
+// async function main() {
+//     await mongoose.connect("mongodb://127.0.0.1:27017/shopmart");
+//     //await mongoose.connect("mongodb://mongodb:27017/shopmart"); for docker container
+// };
+
+// const mongoose = require('mongoose'); use below not above
+
+async function connectDB() {
+    await mongoose.connect("mongodb://mongodb:27017/shopmart");
+    console.log("Connected successfully");
+}
+
+connectDB().then(() => {
+    // Optional: Start your server here
+}).catch((err) => {
+    console.error("Connection error:", err);
+});
 
 app.get("/", (req, res) => {
     // res.send("apps working");

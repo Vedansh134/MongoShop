@@ -1,0 +1,43 @@
+services:
+  backend:
+    container_name: mongoshop_app
+    build:
+      context: .
+   #env_file:
+   # - .env.sample
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongodb
+    environment:
+      - MONGO_URL=mongodb://mongodb:27017/shopmart
+    networks:
+      - mongoshop
+    volumes:
+      - ./app:/app
+    restart: unless-stopped
+
+  mongodb:
+    container_name: mongodb
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    networks:
+      - mongoshop
+    volumes:
+      - mongoshop:/data/db
+    healthcheck:
+      test: ["CMD","mongosh","--eval","db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+
+networks:
+  mongoshop:
+    driver: bridge
+
+volumes:
+  mongoshop:
+    driver: local
