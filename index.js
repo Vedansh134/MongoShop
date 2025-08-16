@@ -53,6 +53,21 @@ async function main() {
     await mongoose.connect("mongodb://127.0.0.1:27017/shopmart");
     //await mongoose.connect("mongodb://mongodb:27017/shopmart"); for docker container
 };
+<<<<<<< HEAD
+=======
+
+// async function connectDB() {
+//     await mongoose.connect("mongodb://mongodb:27017/shopmart");
+//     console.log("Connected successfully");
+// }
+
+// connectDB().then(() => {
+//     // Optional: Start your server here
+// }).catch((err) => {
+//     console.error("Connection error:", err);
+// });
+// use for remove error in docker files
+>>>>>>> 6086b1853085a5d12774bbd250764bc9aee758bf
 
 app.get("/", (req, res) => {
     // res.send("apps working");
