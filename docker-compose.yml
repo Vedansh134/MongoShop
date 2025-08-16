@@ -3,23 +3,23 @@ services:
     container_name: mongoshop_app
     build:
       context: .
-   #env_file:
-   # - .env.sample
+    env_file:
+     - .env.local
     ports:
       - "8000:8000"
     depends_on:
       - mongodb
-    environment:
-      - MONGO_URL=mongodb://mongodb:27017/shopmart
+   #environment:
+   #   - MONGO_URL=mongodb://mongodb:27017/shopmart
     networks:
       - mongoshop
-    volumes:
-      - ./app:/app
+   # volumes:
+   #   - ./app:/app
     restart: unless-stopped
 
   mongodb:
     container_name: mongodb
-    image: mongo:latest
+    image: mongo:6.0
     ports:
       - "27017:27017"
     networks:
