@@ -21,6 +21,11 @@ spec:
           image: kvedansh786/mongoshop:v10
           ports:
             - containerPort: 8000
+          env:
+          - name: MONGODB_URI
+            value: "mongodb://mongodb:27017/shopmart"
+          - name: PORT
+            value: "8000"    
 ---
 apiVersion: v1
 kind: Service
@@ -36,3 +41,4 @@ spec:
       targetPort: 8000
       protocol: TCP
       nodePort: 31000
+
