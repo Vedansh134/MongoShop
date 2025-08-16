@@ -41,28 +41,29 @@ const sessionOption = {
 };
 
 // mongodb connection
-// main()
-//     .then(() => {
-//         console.log("connect successfully with mongoDB");
-//     }).catch((err) => {
-//         console.log(err);
-//         console.log("there is a error while connecting to database");
-//     });
+main()
+    .then(() => {
+        console.log("connect successfully with mongoDB");
+    }).catch((err) => {
+        console.log(err);
+        console.log("there is a error while connecting to database");
+    });
 
-// async function main() {
-//     await mongoose.connect("mongodb://127.0.0.1:27017/shopmart");
-//     //await mongoose.connect("mongodb://mongodb:27017/shopmart"); for docker container
-// };
-async function connectDB() {
-    await mongoose.connect("mongodb://mongodb:27017/shopmart");
-    console.log("Connected successfully");
-}
+async function main() {
+    await mongoose.connect("mongodb://127.0.0.1:27017/shopmart");
+    //await mongoose.connect("mongodb://mongodb:27017/shopmart"); for docker container
+};
 
-connectDB().then(() => {
-    // Optional: Start your server here
-}).catch((err) => {
-    console.error("Connection error:", err);
-});
+// async function connectDB() {
+//     await mongoose.connect("mongodb://mongodb:27017/shopmart");
+//     console.log("Connected successfully");
+// }
+
+// connectDB().then(() => {
+//     // Optional: Start your server here
+// }).catch((err) => {
+//     console.error("Connection error:", err);
+// });
 // use for remove error in docker files
 
 app.get("/", (req, res) => {
