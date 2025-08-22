@@ -6,7 +6,10 @@ Welcome to *MongoShop*, a simple (for practice) e-commerce application built wit
 
 - Images: ![Alt text](https://example.com/image.png)
 <img width="1894" height="913" alt="Screenshot 2025-08-22 185323" src="https://github.com/user-attachments/assets/5777277c-3a6e-4623-b649-955228e7d873" />
-  
+
+
+<img width="1894" height="923" alt="Screenshot 2025-08-22 185411" src="https://github.com/user-attachments/assets/cc73d29a-367b-44cc-b359-aa1f226c7f81" />
+
 ---
 
 ## 🎯 Features
