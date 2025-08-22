@@ -4,6 +4,11 @@ Welcome to *MongoShop*, a simple (for practice) e-commerce application built wit
 
 ---
 
+- Images: ![Alt text](https://example.com/image.png)
+<img width="1894" height="913" alt="Screenshot 2025-08-22 185323" src="https://github.com/user-attachments/assets/5777277c-3a6e-4623-b649-955228e7d873" />
+  
+---
+
 ## 🎯 Features
 
 - *User Authentication & Authorization* 🔐  
@@ -59,23 +64,6 @@ Welcome to *MongoShop*, a simple (for practice) e-commerce application built wit
 - **Monitoring:** AWS CloudWatch 
 - **Additional:** GitHub
 
----
-
-## 🛠️ Tech Stack for Implement DevSecOps principles
-
-- **Terraform :** IaC for scalable setup
-- **AWS :** Provisioned AWS EC2 seamlessly with Terraform and use AWS IAM for assigns Roles and policies
-- **GitHub/GitLab :** Source code hosting and version control.
-- **Containerization :** Docker & Docker Compose
-- **SonarQube (Quality) :** Analyzes code quality and bugs.
-- **Trivy :** Container and filesystem scans
-- **CI/CD pipelines :** CI/CD with Jenkins
-- **ArgoCD :** GitOps-based Continuous Delivery
-- **AWS EKS :** Kubernetes cluster for orchestration
-- **Monitoring & Monitoring Tools :** Prometheus & Grafana  
-
----
-
 ## 📝 Setup & Installation
 
 ### Prerequisites
@@ -122,6 +110,21 @@ docker-compose up -d
 
 ---
 
+## 🛠️ Tech Stack for Implement DevSecOps principles
+
+- **Terraform :** IaC for scalable setup
+- **AWS :** Provisioned AWS EC2 seamlessly with Terraform and use AWS IAM for assigns Roles and policies
+- **GitHub/GitLab :** Source code hosting and version control.
+- **Containerization :** Docker & Docker Compose
+- **SonarQube (Quality) :** Analyzes code quality and bugs.
+- **Trivy :** Container and filesystem scans
+- **CI/CD pipelines :** CI/CD with Jenkins
+- **ArgoCD :** GitOps-based Continuous Delivery
+- **AWS EKS :** Kubernetes cluster for orchestration
+- **Monitoring & Monitoring Tools :** Prometheus & Grafana  
+
+---
+
 ## 🧭 Future Plans & Enhancements
 
 - **Orchestrate with Kubernetes (K8s)** for better scaling & management  
@@ -132,21 +135,7 @@ docker-compose up -d
 
 ## 🔗 Links & Resources
 
-- **Live Demo:** [Your domain or AWS ELB link]  
-- **Docker Hub:** (if published)  
 - **Jenkins Pipeline Repo:** [mongoshop_CI-CD](https://github.com/Vedansh134/mongoshop_CI-CD)
-
----
-
-## 📜 License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-## ✉️ Contact
-
-Feel free to open issues or contact me at [your-email].
 
 ---
 
