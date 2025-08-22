@@ -164,11 +164,14 @@ docker-compose up -d
 | -------- | ------- |
 | 80 | http |
 | 22 | ssh |
-| smtps | 465 |
-| Jenkins Master | 8080 |
+| 465 | smtps |
+| 8080 | Jenkins Master |
 
 > [!Note]
 > We are creating this master machine because we will configure Jenkins master, eksctl, EKS cluster creation from here.
+
+- Links: [Text](https://example.com)
+- <b>Now, access Jenkins Master on the browser on port 8080 and configure it</b>.
 
 ## 🧭 Future Plans & Enhancements
 
