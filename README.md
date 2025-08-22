@@ -130,7 +130,6 @@ docker-compose up -d
 
 ## How pipeline will look after deployment:
 
----
 - CI/CD Jenkins Pipeline
   
 <img width="1894" height="801" alt="Screenshot 2025-08-17 023041" src="https://github.com/user-attachments/assets/1d0497f9-0255-445b-a796-f314ec8c1ecf" />
@@ -140,6 +139,36 @@ docker-compose up -d
 <img width="1884" height="909" alt="Screenshot 2025-08-17 023233" src="https://github.com/user-attachments/assets/92de7605-7fda-4b9f-9619-569f7caec762" />
 
 ---
+
+| Tech stack    | Installation |
+| -------- | ------- |
+| Jenkins Master | <a href="#Jenkins">Install and configure Jenkins</a>     |
+| eksctl | <a href="#EKS">Install eksctl</a>     |
+| Argocd | <a href="#Argo">Install and configure ArgoCD</a>     |
+| Jenkins-Worker Setup | <a href="#Jenkins-worker">Install and configure Jenkins Worker Node</a>     |
+| OWASP setup | <a href="#Owasp">Install and configure OWASP</a>     |
+| SonarQube | <a href="#Sonar">Install and configure SonarQube</a>     |
+| Email Notification Setup | <a href="#Mail">Email notification setup</a>     |
+| Monitoring | <a href="#Monitor">Prometheus and grafana setup using helm charts</a>
+| Clean Up | <a href="#Clean">Clean up</a>     |
+#
+
+> [!Note]
+> This project will be implemented on Mumbai region (ap-south-1).
+
+- <b>Create 1 Master machine on AWS with 2CPU, 8GB of RAM (t2.large) and 30 GB of storage and install Docker on it. We configure Jenkins Master Node on it</b>
+#
+
+## Security Groups
+| Port Number    | Use for |
+| -------- | ------- |
+| 80 | http |
+| 22 | ssh |
+| smtps | 465 |
+| Jenkins Master | 8080 |
+
+> [!Note]
+> We are creating this master machine because we will configure Jenkins master, eksctl, EKS cluster creation from here.
 
 ## 🧭 Future Plans & Enhancements
 
