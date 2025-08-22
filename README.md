@@ -4,9 +4,9 @@ Welcome to *MongoShop*, a simple (for practice) e-commerce application built wit
 
 ---
 
-- Images: ![Alt text](https://example.com/image.png)
 <img width="1894" height="913" alt="Screenshot 2025-08-22 185323" src="https://github.com/user-attachments/assets/5777277c-3a6e-4623-b649-955228e7d873" />
 
+---
 
 <img width="1894" height="923" alt="Screenshot 2025-08-22 185411" src="https://github.com/user-attachments/assets/cc73d29a-367b-44cc-b359-aa1f226c7f81" />
 
@@ -125,6 +125,19 @@ docker-compose up -d
 - **ArgoCD :** GitOps-based Continuous Delivery
 - **AWS EKS :** Kubernetes cluster for orchestration
 - **Monitoring & Monitoring Tools :** Prometheus & Grafana  
+
+---
+
+## How pipeline will look after deployment:
+
+---
+- CI/CD Jenkins Pipeline
+  
+<img width="1894" height="801" alt="Screenshot 2025-08-17 023041" src="https://github.com/user-attachments/assets/1d0497f9-0255-445b-a796-f314ec8c1ecf" />
+
+- ArgoCD application for deployment on EKS
+
+<img width="1884" height="909" alt="Screenshot 2025-08-17 023233" src="https://github.com/user-attachments/assets/92de7605-7fda-4b9f-9619-569f7caec762" />
 
 ---
 
