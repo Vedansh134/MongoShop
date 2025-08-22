@@ -166,12 +166,125 @@ docker-compose up -d
 | 22 | ssh |
 | 465 | smtps |
 | 8080 | Jenkins Master |
+| 9000 | SonarQube |
 
 > [!Note]
 > We are creating this master machine because we will configure Jenkins master, eksctl, EKS cluster creation from here.
 
-- Links: [Text](https://example.com)
+
+- <b id="Trivy">Docker Installation Shell Scripting : (On Jenkins Master Node)</b>
+[Text](https://github.com/Vedansh134/MongoShop/blob/main/shell-scripts/docker_install.sh)
+
+- <b id="Trivy">Jenkins Installation Shell Scripting : (On Jenkins Master Node)</b>
+[Text](https://github.com/Vedansh134/MongoShop/blob/main/shell-scripts/jenkins_install.sh)
+
 - <b>Now, access Jenkins Master on the browser on port 8080 and configure it</b>.
+
+#
+- <b id="EKS">Create EKS Cluster on AWS (Master machine)</b>
+  - IAM user with **access keys and secret access keys**
+  - AWSCLI should be configured (<a href="https://github.com/yourshelll-link">Setup AWSCLI</a>)
+  ```bash
+  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+  sudo apt install unzip
+  unzip awscliv2.zip
+  sudo ./aws/install
+  aws configure
+  ```
+
+  - Install **kubectl** (Master machine)
+  ```bash
+  curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/kubectl
+  chmod +x ./kubectl
+  sudo mv ./kubectl /usr/local/bin
+  kubectl version --short --client
+  ```
+
+ - Install **eksctl** (Master machine)
+  ```bash
+  curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+  sudo mv /tmp/eksctl /usr/local/bin
+  eksctl version
+  ```
+  
+  - <b>Create EKS Cluster (Master machine)</b>
+  ```bash
+  eksctl create cluster --name=mongoshop \
+                      --region=ap-south-1 \
+                      --version=1.30 \
+                      --without-nodegroup
+  ```
+  - <b>Associate IAM OIDC Provider (Master machine)</b>
+  ```bash
+  eksctl utils associate-iam-oidc-provider \
+    --region ap-south-1 \
+    --cluster mongoshop \
+    --approve
+  ```
+  - <b>Create Nodegroup (Master machine)</b>
+  ```bash
+  eksctl create nodegroup --cluster=mongoshop \
+                       --region=ap-south-1 \
+                       --name=mongoshop \
+                       --node-type=t2.large \
+                       --nodes=2 \
+                       --nodes-min=2 \
+                       --nodes-max=2 \
+                       --node-volume-size=30 \
+                       --ssh-access \
+                       --ssh-public-key=eks-nodegroup-key 
+  ```
+> [!Note]
+>  Make sure the ssh-public-key "eks-nodegroup-key is available in your aws account"
+
+#
+- <b id="Sonar">Install and configure SonarQube (On Jenkins Master Node)</b>
+```bash
+docker run -itd --name SonarQube-Server -p 9000:9000 sonarqube:lts-community
+```
+#
+- <b id="Trivy">Trivy Installation Shell Scripting : (On Jenkins Master Node)</b>
+[Text](https://github.com/Vedansh134/MongoShop/blob/main/shell-scripts/trivy_install.sh)
+
+
+- <b id="Trivy">ArgoCD Installation Shell Scripting : (On Jenkins Master Node)</b>
+[Text](https://github.com/Vedansh134/MongoShop/blob/main/shell-scripts/trivy_install.sh)
+
+
+#
+  - <b>Check argocd services</b>
+  ```bash
+  kubectl get svc -n argocd
+  ```
+  - <b>Change argocd server's service from ClusterIP to NodePort</b>
+  ```bash
+  kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "NodePort"}}'
+  ```
+  - <b>Confirm service is patched or not</b>
+  ```bash
+  kubectl get svc -n argocd
+  ```
+  - <b> Check the port where ArgoCD server is running and expose it on security groups of a worker node</b>
+  ![image](https://github.com/user-attachments/assets/a2932e03-ebc7-42a6-9132-82638152197f)
+  - <b>Access it on browser, click on advance and proceed with</b>
+  ```bash
+  <public-ip-worker>:<port>
+  ```
+  - <b>Fetch the initial password of argocd server</b>
+  ```bash
+  kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
+  ```
+  - <b>Username: admin</b>
+  - <b> Now, go to <mark>User Info</mark> and update your argocd password
+#
+## Steps to add email notification
+- <b id="Mail">Go to your Jenkins Master EC2 instance and allow 465 port number for SMTPS</b>
+#
+- <b>Now, we need to generate an application password from our gmail account to authenticate with jenkins</b>
+  - <b>Open gmail and go to <mark>Manage your Google Account --> Security</mark></b>
+> [!Important]
+> Make sure 2 step verification must be on
+  
 
 ## 🧭 Future Plans & Enhancements
 
