@@ -1,53 +1,78 @@
-# 🛒 MongoShop - Node.js E-commerce Practice Application 🚀
+# 🛒 MongoShop - Node.js E-commerce Application 🚀
 
-Welcome to **MongoShop**, a simple yet powerful e-commerce application built with Node.js, Express, MongoDB, and modern web technologies. This project was created for practice, showcasing CRUD operations, authentication, authorization, and cloud deployment with various DevOps principles.
+Welcome to *MongoShop*, a simple (for practice) e-commerce application built with Node.js, Express, MongoDB, and modern web technologies. This project was created for practice, showcasing CRUD operations, authentication, authorization, and cloud deployment with various DevOps principles.
 
 ---
 
 ## 🎯 Features
 
-- **User Authentication & Authorization** 🔐  
+- *User Authentication & Authorization* 🔐  
   Sign Up / Login system. Only logged-in users can create, edit, or delete carts and orders.
 
-- **Shopping Cart Management** 🛍️  
+- *Shopping Cart Management* 🛍  
   Add, remove, edit, and view shopping cart items with smooth UI.
 
-- **CRUD Operations** ⚙️  
+- *CRUD Operations* ⚙  
   Full create, read, update, and delete capabilities for products and cart items.
 
-- **Responsive UI** 🎨  
-  Made with Bootstrap, CSS, and JavaScript for a clean, user-friendly interface.
+- *Smooth UI* 🎨  
+  Made with Bootstrap, CSS, and JavaScript for a clean interface.
 
-- **Backend & Database** 💾  
+- *Backend & Database* 💾  
   Using Node.js, Express.js, and MongoDB (via Mongoose) to handle data efficiently.
 
-- **Security & Authentication** 🔒  
+- *Security & Authentication* 🔒  
   Managed with Passport.js, with sessions and flash messages.
 
-- **Containerization & Deployment** 🐳  
+---
+## Implement DevOps and DevSecOps practices 
+
+- *Containerization & Deployment* 🐳  
   Dockerized the app with Dockerfile and docker-compose for easy deployment.
 
-- **Cloud Deployment & DevOps** ☁️  
+- *Cloud Deployment & DevOps* ☁  
   Deployed on AWS EC2 with Docker, using AWS Elastic Load Balancer (ELB), Route 53, autoscaling, and DNS setup.
 
-- **CI/CD Pipelines** 🔄  
-  Automated deployment with Jenkins (in a separate repo `mongoshop_CI-CD`).
+- *CI/CD Pipelines* 🔄  
+  Automated deployment with Jenkins (in a separate repo mongoshop_CI-CD).
+  Separate file for Jenkins different stages we use shared libraries.
 
+- *Implement devSecOps*
+  - Implemented end-to-end CI/CD pipeline (GitLab SCM, Jenkins on AWS EC2) with Terraform-based infrastructure automation for scalable
+    deployment.
+  - Integrated SonarQube for code quality and Trivy for container image security scanning to ensure production-ready releases.
+  - Dockerized the Node.js application (use Docker Compose for multi-build capabilities) and created multi-stage Dockerfiles to reduce
+    container size.
+  - Published images to Docker Hub, and deployed to AWS EKS (Kubernetes) with ArgoCD for continuous delivery.
+  - Designed and implemented monitoring and observability using Prometheus and Grafana, with dashboards and alerts for proactive
+    maintenance.
+  
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Tech Stack for Application
 
 - **Backend:** Node.js, Express.js  
 - **Frontend:** HTML, CSS, JavaScript, Bootstrap  
 - **Database:** MongoDB with Mongoose  
 - **Authentication:** Passport.js  
-- **Containerization:** Docker & Docker Compose  
 - **Deployment:** AWS EC2, ELB, Route 53  
-- **Monitoring & Monitoring Tools:**  
-  - Prometheus & Grafana  
-  - AWS CloudWatch
-- **CI/CD pipelines:** CI/CD with Jenkins 
+- **Monitoring:** AWS CloudWatch 
 - **Additional:** GitHub
+
+---
+
+## 🛠️ Tech Stack for Implement DevSecOps principles
+
+- **Terraform :** IaC for scalable setup
+- **AWS :** Provisioned AWS EC2 seamlessly with Terraform and use AWS IAM for assigns Roles and policies
+- **GitHub/GitLab :** Source code hosting and version control.
+- **Containerization :** Docker & Docker Compose
+- **SonarQube (Quality) :** Analyzes code quality and bugs.
+- **Trivy :** Container and filesystem scans
+- **CI/CD pipelines :** CI/CD with Jenkins
+- **ArgoCD :** GitOps-based Continuous Delivery
+- **AWS EKS :** Kubernetes cluster for orchestration
+- **Monitoring & Monitoring Tools :** Prometheus & Grafana  
 
 ---
 
