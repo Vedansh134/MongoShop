@@ -142,10 +142,10 @@ docker-compose up -d
 
 | Tech stack    | Installation |
 | -------- | ------- |
+| Docker | <a href="#Docker">Install docker</a>    |
 | Jenkins Master | <a href="#Jenkins">Install and configure Jenkins</a>     |
 | eksctl | <a href="#EKS">Install eksctl</a>     |
 | Argocd | <a href="#Argo">Install and configure ArgoCD</a>     |
-| Jenkins-Worker Setup | <a href="#Jenkins-worker">Install and configure Jenkins Worker Node</a>     |
 | OWASP setup | <a href="#Owasp">Install and configure OWASP</a>     |
 | SonarQube | <a href="#Sonar">Install and configure SonarQube</a>     |
 | Email Notification Setup | <a href="#Mail">Email notification setup</a>     |
@@ -169,21 +169,21 @@ docker-compose up -d
 | 9000 | SonarQube |
 
 > [!Note]
-> We are creating this master machine because we will configure Jenkins master, eksctl, EKS cluster creation from here.
+> We are creating this master machine because we will configure Docker, Jenkins master, Trivy, SonarQube, eksctl, EKS cluster creation from here.
 
 
-- <b id="Trivy">Docker Installation Shell Scripting : (On Jenkins Master Node)</b>
-[Text](https://github.com/Vedansh134/MongoShop/blob/main/shell-scripts/docker_install.sh)
+- <b id="Docker">Docker Installation Shell Scripting : (On Jenkins Master Node)</b>
+[Text](https://github.com/Vedansh134/Shell_Scripts/blob/main/docker_install.sh)
 
-- <b id="Trivy">Jenkins Installation Shell Scripting : (On Jenkins Master Node)</b>
-[Text](https://github.com/Vedansh134/MongoShop/blob/main/shell-scripts/jenkins_install.sh)
+- <b id="Jenkins">Jenkins Installation Shell Scripting : (On Jenkins Master Node)</b>
+[Text](https://github.com/Vedansh134/Shell_Scripts/blob/main/jenkins_install.sh)
 
 - <b>Now, access Jenkins Master on the browser on port 8080 and configure it</b>.
 
 #
 - <b id="EKS">Create EKS Cluster on AWS (Master machine)</b>
   - IAM user with **access keys and secret access keys**
-  - AWSCLI should be configured (<a href="https://github.com/yourshelll-link">Setup AWSCLI</a>)
+  - AWSCLI should be configured (<a href="https://github.com/yourshell-link">Setup AWSCLI</a>)
   ```bash
   curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
   sudo apt install unzip
@@ -244,10 +244,10 @@ docker run -itd --name SonarQube-Server -p 9000:9000 sonarqube:lts-community
 ```
 #
 - <b id="Trivy">Trivy Installation Shell Scripting : (On Jenkins Master Node)</b>
-[Text](https://github.com/Vedansh134/MongoShop/blob/main/shell-scripts/trivy_install.sh)
+[Text](https://github.com/Vedansh134/Shell_Scripts/blob/main/trivy_install.sh)
 
 
-- <b id="Trivy">ArgoCD Installation Shell Scripting : (On Jenkins Master Node)</b>
+- <b id="Argo">ArgoCD Installation Shell Scripting : (On Jenkins Master Node)</b>
 [Text](https://github.com/Vedansh134/MongoShop/blob/main/shell-scripts/trivy_install.sh)
 
 
