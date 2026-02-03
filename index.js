@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 8001;
+const port = 8000;
 const mongoose = require("mongoose");
 const shopItems = require("./models/shop.js");
 const path = require("path");
@@ -50,11 +50,10 @@ main()
     });
 
 async function main() {
-    await mongoose.connect("mongodb://127.0.0.1:27017/shopmart");
-    //await mongoose.connect("mongodb://mongodb:27017/shopmart"); for docker container
+    // await mongoose.connect("mongodb://127.0.0.1:27017/shopmart");
+    // for docker container
+    await mongoose.connect("mongodb://mongodb:27017/shopmart");
 };
-<<<<<<< HEAD
-=======
 
 // async function connectDB() {
 //     await mongoose.connect("mongodb://mongodb:27017/shopmart");
@@ -67,7 +66,6 @@ async function main() {
 //     console.error("Connection error:", err);
 // });
 // use for remove error in docker files
->>>>>>> 6086b1853085a5d12774bbd250764bc9aee758bf
 
 app.get("/", (req, res) => {
     // res.send("apps working");
