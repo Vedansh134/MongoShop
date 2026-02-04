@@ -1,4 +1,4 @@
-kind: StatefulSet
+kind: Deployment # StatefulSet # later use
 apiVersion: apps/v1
 metadata:
   name: mongo-deployment
