@@ -4,7 +4,7 @@ metadata:
   name: mongodb-svc
   namespace: mongoshop-database
 spec:
-  clusterIP: None
+  #clusterIP: None
   selector:
     app: mongo
   ports:
