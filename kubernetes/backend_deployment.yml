@@ -23,8 +23,8 @@ spec:
             - containerPort: 8000
           env:
           - name: MONGODB_URI
-            # value: "mongodb://mongodb:27017/shopmart"
-            value: "mongodb://mongodb-svc.mongoshop-database.svc.cluster.local:27017/shopmart"
+            value: "mongodb://mongodb:27017/shopmart"
+            # value: "mongodb://mongodb-svc.mongoshop-database.svc.cluster.local:27017/shopmart"
           - name: PORT
             value: "8000"   
           # Add resource limits
