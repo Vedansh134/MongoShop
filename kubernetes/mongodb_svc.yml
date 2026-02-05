@@ -3,13 +3,15 @@ apiVersion: v1
 metadata:
   name: mongodb-service
   namespace: mongoshop-database
+  labels:
+    app: mongo
 spec:
   selector:
     app: mongo
   ports:
   - port: 27017
     targetPort: 27017
-    protocol: TCP
+    name: mongo
   type: ClusterIP
-  
+
 
