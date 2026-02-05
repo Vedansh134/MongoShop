@@ -6,7 +6,7 @@ metadata:
   labels:
     app: mongo
 spec:
-  serviceName: mongodb-svc 
+  # serviceName: mongodb-svc # for stateful only
   replicas: 1
   selector:
     matchLabels:
@@ -16,18 +16,16 @@ spec:
       labels:
         app: mongo
     spec:
-      nodeSelector:
-        kubernetes.io/hostname: minikube
       containers:
         - name: mongo
-          image: mongo
+          image: mongo:latest
           ports:
             - containerPort: 27017
           volumeMounts:
             - name: mongo-storage
               mountPath: /data/db
+          # Pull credentials from secret
           env:
-            # pull credentials from secret
           - name: MONGO_INITDB_ROOT_USERNAME
             valueFrom:
               secretKeyRef:
@@ -37,7 +35,12 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: mongodb-secret
-                key: mongodb-root-password
+                key: mongodb-password
+          - name: MONGO_INITDB_DATABASE
+            valueFrom:
+              secretKeyRef:
+                name: mongodb-secret
+                key: mongodb-database
       volumes:
         - name: mongo-storage
           persistentVolumeClaim:
