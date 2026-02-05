@@ -1,12 +1,12 @@
-kind: Deployment # StatefulSet # later use
+kind: StatefulSet
 apiVersion: apps/v1
 metadata:
-  name: mongo-deployment
+  name: mongo-statefulset
   namespace: mongoshop-database
   labels:
     app: mongo
 spec:
-  # serviceName: mongodb-svc # for stateful only
+  serviceName: mongodb-svc # for stateful only
   replicas: 1
   selector:
     matchLabels:
@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: mongo
-          image: mongo:latest
+          image: mongo:6.0
           ports:
             - containerPort: 27017
           volumeMounts:
@@ -31,6 +31,11 @@ spec:
             limits:
               memory: "512Mi"
               cpu: "500m"
+          # Simple MongoDB configuration (no replica set)
+          command:
+          - mongod
+          - "--bind_ip_all"
+          - "--auth"
           # Pull credentials from secret
           env:
           - name: MONGO_INITDB_ROOT_USERNAME
