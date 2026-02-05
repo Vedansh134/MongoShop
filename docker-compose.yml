@@ -3,18 +3,18 @@ services:
     container_name: mongoshop_app
     build:
       context: .
+      dockerfile: Dockerfile
     env_file:
      - .env.local
     ports:
       - "8000:8000"
+    environment:
+      - MONGO_URL=mongodb://mongodb:27017/shopmart
+      - PORT=8000
     depends_on:
       - mongodb
-   #environment:
-   #   - MONGO_URL=mongodb://mongodb:27017/shopmart
     networks:
       - mongoshop
-   # volumes:
-   #   - ./app:/app
     restart: unless-stopped
 
   mongodb:
@@ -26,11 +26,14 @@ services:
       - mongoshop
     volumes:
       - mongoshop:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=shopmart
     healthcheck:
       test: ["CMD","mongosh","--eval","db.adminCommand('ping')"]
       interval: 10s
       timeout: 5s
       retries: 5
+      start_period: 5s
     restart: unless-stopped
 
 
