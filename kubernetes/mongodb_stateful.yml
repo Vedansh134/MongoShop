@@ -53,7 +53,14 @@ spec:
               secretKeyRef:
                 name: mongodb-secret
                 key: mongodb-database
-      volumes:
-        - name: mongo-storage
-          persistentVolumeClaim:
-            claimName: mongo-pvc
+
+  volumeClaimTemplates:
+  - metadata:
+      name: mongo-storage
+    spec:
+      accessModes:
+        - ReadWriteOnce
+      storageClassName: "Standard" # use minikube standard ip
+      resources:
+        requests:
+          storage: 5Gi
