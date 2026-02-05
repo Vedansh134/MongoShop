@@ -18,15 +18,16 @@ spec:
     spec:
       containers:
         - name: backend
-          image: kvedansh/mongoshop-backend:latest
+          image: kvedansh/mongoshop-backend-img:latest
           ports:
             - containerPort: 8000
           env:
-          - name: MONGODB_URI
-            value: "mongodb://mongodb:27017/shopmart"
-            # value: "mongodb://mongodb-svc.mongoshop-database.svc.cluster.local:27017/shopmart"
           - name: PORT
-            value: "8000"   
+            value: "8000"
+          - name: MONGODB_URI
+            # value: "mongodb://mongodb:27017/shopmart"
+            # value: "mongodb://mongodb-svc.mongoshop-database.svc.cluster.local:27017/shopmart"
+            value: "mongodb://admin:password123@mongodb-service.mongoshop-database.svc.cluster.local:27017/shopmart?authSource=admin"   
           # Add resource limits
           resources: 
             requests:
