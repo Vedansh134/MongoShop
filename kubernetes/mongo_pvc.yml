@@ -4,9 +4,9 @@ metadata:
   name: mongo-pvc
   namespace: mongoshop-database
 spec:
+  storageClassName: standard
   accessModes:
     - ReadWriteOnce
-  storageClassName: ""
   resources:
     requests:
       storage: 5Gi 
