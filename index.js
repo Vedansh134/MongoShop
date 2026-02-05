@@ -43,17 +43,43 @@ const sessionOption = {
 // mongodb connection
 main()
     .then(() => {
-        console.log("connect successfully with mongoDB");
+        console.log("✅ Connected successfully with mongoDB");
     }).catch((err) => {
         console.log(err);
-        console.log("there is a error while connecting to database");
+        console.log("❌ There is a error while connecting to database");
+        process.exit(1);
     });
 
 async function main() {
+    // for local host / on your machine
     // await mongoose.connect("mongodb://127.0.0.1:27017/shopmart");
+
     // for docker container
-    await mongoose.connect("mongodb://mongodb:27017/shopmart");
+    //await mongoose.connect("mongodb://mongodb:27017/shopmart");
+
+    // MongoDB Connection
+    const mongoURI = process.env.MONGODB_URI || "mongodb://localhost:27017/shopmart";
+    try {
+        await mongoose.connect(mongoURI);
+        console.log("✅ Connected successfully with MongoDB");
+    } catch (error) {
+        console.error("❌ Error connecting to database:", error);
+        throw error; // Re-throw to be caught in the catch block below
+    }
 };
+
+// Optional: Handle connection events
+mongoose.connection.on('connected', () => {
+    console.log('Mongoose connected to MongoDB');
+});
+
+mongoose.connection.on('error', (err) => {
+    console.error('Mongoose connection error:', err);
+});
+
+mongoose.connection.on('disconnected', () => {
+    console.log('Mongoose disconnected from MongoDB');
+});
 
 // async function connectDB() {
 //     await mongoose.connect("mongodb://mongodb:27017/shopmart");
