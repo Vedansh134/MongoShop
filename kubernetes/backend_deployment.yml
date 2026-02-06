@@ -26,8 +26,8 @@ spec:
             value: "8000"
           - name: MONGODB_URI
             # value: "mongodb://mongodb:27017/shopmart"
-            # value: "mongodb://mongodb-svc.mongoshop-database.svc.cluster.local:27017/shopmart"
-            value: "mongodb://admin:password123@mongodb-service.mongoshop-database.svc.cluster.local:27017/shopmart?authSource=admin"   
+            value: "mongodb://mongodb-svc.mongoshop-database.svc.cluster.local:27017/shopmart"
+            # value: "mongodb://admin:password123@mongodb-service.mongoshop-database.svc.cluster.local:27017/shopmart?authSource=admin"   
           # Add resource limits
           resources: 
             requests:
