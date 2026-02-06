@@ -12,6 +12,6 @@ spec:
   - port: 27017
     targetPort: 27017
     name: mongo
-  type: ClusterIP
+  type: NodePort # for external access, can be changed to ClusterIP for internal access only
 
 
