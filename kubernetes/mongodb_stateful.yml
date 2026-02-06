@@ -49,10 +49,7 @@ spec:
                 name: mongodb-secret
                 key: mongodb-password
           - name: MONGO_INITDB_DATABASE
-            valueFrom:
-              secretKeyRef:
-                name: mongodb-secret
-                key: mongodb-database
+            value: "admin"
 
   volumeClaimTemplates:
   - metadata:
