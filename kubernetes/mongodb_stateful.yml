@@ -57,7 +57,7 @@ spec:
     spec:
       accessModes:
         - ReadWriteOnce
-      storageClassName: "Standard" # use minikube standard ip
+      storageClassName: standard # use minikube standard ip
       resources:
         requests:
           storage: 5Gi
